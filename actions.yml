@@ -1,0 +1,18 @@
+name: Encoding String To Base64
+description: 'actions helps you encode string to base64'
+branding:
+  icon: 'command'
+  color: 'red'
+inputs:
+  string_value: 
+    description: 'string value that needs to be encoded'
+    requried: true
+outputts:
+  base64_encoded_value:
+    description: 'encoded value for provided input string'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo "base64_encoded_value=$(echo -n "${{ inputs.string_value }}" | base64)" >> $GITHUB_OUTPUT
+      shell: bash
