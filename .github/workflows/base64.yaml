@@ -1,0 +1,29 @@
+name: String To Base 64 Encode Workflow
+
+on: 
+  workflow_call:
+    inputs:
+      string_value:
+        required: true
+        type: string
+        description: "value required to encode into base64"
+    outputs:
+      base64_encoded_value:
+        description: "base64 encoded value of the input string"
+        value: ${{ jobs.Encoding_String_To_Base64.outputs.bas64_encoded_value }}
+
+jobs:
+
+   Encoding_String_To_Base64:
+     runs-on: ubuntu-latest
+     name: Encoding String Into Base64
+     outputs:
+       bas64_encoded_value: ${{ steps.encodebase64.outputs.base64_encoded_value }}
+
+     steps:
+
+       - name: Encoding
+         id: encodebase64
+         run: echo "base64_encoded_value=$(echo -n "${{ inputs.string_value }}" | base64)" >> $GITHUB_OUTPUT
+         
+     
