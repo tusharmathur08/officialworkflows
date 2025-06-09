@@ -15,3 +15,10 @@ jobs:
     with:
       string_value: "test"
      
+   Display_encoded_value:
+     runs-on: ubuntu-latest
+     needs: Encoding_String_To_Base64
+     steps:
+
+       - name: Display encoded value
+         run: echo ${{needs.Encoding_String_To_Base64.base64_encoded_value}}
