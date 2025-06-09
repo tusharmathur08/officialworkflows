@@ -3,7 +3,7 @@ name: String To Base 64 Encode Workflow
 
 #Provide the trigger on the workflow call and also provide the inputs & outputs of this workflow
 on: 
-  pushes:
+  push:
     branches:
       - "feature1"
 
