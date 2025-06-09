@@ -21,4 +21,4 @@ jobs:
      steps:
 
        - name: Display encoded value
-         run: echo ${{needs.Encoding_String_To_Base64.base64_encoded_value}}
+         run: echo ${{needs.Encoding_String_To_Base64.outputs.base64_encoded_value}}
